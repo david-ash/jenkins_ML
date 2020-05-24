@@ -24,7 +24,7 @@ y = dataset['Purchased']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)
 
 
-model = KNeighborsClassifier(n_neighbors=os.environ['START'])
+model = KNeighborsClassifier(n_neighbors=int(os.environ['START']))
 model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 error_rate = accuracy_score(y_test, y_pred)
