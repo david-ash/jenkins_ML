@@ -24,13 +24,17 @@ y = dataset['Purchased']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)
 
 
-model = KNeighborsClassifier(n_neighbors=int(os.environ['START']))
+model = KNeighborsClassifier(n_neighbors=3)
 model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 error_rate = accuracy_score(y_test, y_pred)
 error_rate = int(round(error_rate,4) * 10000)
 os.environ['ACCURACY'] = str(error_rate)
 print(error_rate)
+
+
+os.system("python3 counter.py")
+
 # error_rate = []
 # for i in range(int(os.environ['START']), int(os.environ['END'])):
 #     model = KNeighborsClassifier(n_neighbors=i)
