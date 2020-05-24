@@ -28,7 +28,7 @@ model = KNeighborsClassifier(n_neighbors=int(os.environ['START']))
 model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 error_rate = accuracy_score(y_test, y_pred)
-
+error_rate = error_rate * 100
 os.environ['ACCURACY'] = str(error_rate)
 print(error_rate)
 # error_rate = []
